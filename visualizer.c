@@ -2,13 +2,42 @@
 * @Author: Simon Myunggun Seo
 * @Date:   2022-07-24 00:42:27
 * @Last Modified by:   Simon Seo
-* @Last Modified time: 2022-08-03 13:50:05
+* @Last Modified time: 2022-08-03 14:18:13
 */
 #include QMK_KEYBOARD_H
 #include "layers.h"
 
 #ifdef ST7565_ENABLE
 void st7565_task_user(void) {
+    // set color on both keyboards
+    switch (get_highest_layer(layer_state)) {
+        case BASE:
+            ergodox_infinity_lcd_color(65535, 0, 0); // red
+            break;
+        case SYMB:
+            ergodox_infinity_lcd_color(65535, 30000, 0); // orange?
+            break;
+        case MDIA:
+            ergodox_infinity_lcd_color(65535, 65535, 0); // yellow
+            break;
+        case NAV:
+            ergodox_infinity_lcd_color(5000, 65535, 10000); // green?
+            break;
+        case KOWERTY:
+            ergodox_infinity_lcd_color(1000, 1000, 8000); // blue
+            break;
+        case COLEMAK_DH:
+            ergodox_infinity_lcd_color(1000, 0, 16000); // indigo?
+            break;
+        case NUMPAD:
+            ergodox_infinity_lcd_color(20000, 1000, 40000); // violet?
+            break;
+        case QWERTY_CAPS:
+            ergodox_infinity_lcd_color(1000, 1000, 1000); // black?
+            break;
+        default:
+            st7565_on_user();
+    }
 
     if (is_keyboard_master()) {
         // Host Keyboard Layer Status
@@ -64,34 +93,6 @@ void st7565_task_user(void) {
         // Draw logo
         // ergodox_infinity_lcd_color(65535, 65535, 0); // red
         
-        switch (get_highest_layer(layer_state)) {
-            case BASE:
-                ergodox_infinity_lcd_color(65535, 0, 0); // red
-                break;
-            case SYMB:
-                ergodox_infinity_lcd_color(65535, 30000, 0); // orange?
-                break;
-            case MDIA:
-                ergodox_infinity_lcd_color(65535, 65535, 0); // yellow
-                break;
-            case NAV:
-                ergodox_infinity_lcd_color(5000, 65535, 10000); // green?
-                break;
-            case KOWERTY:
-                ergodox_infinity_lcd_color(1000, 1000, 8000); // blue
-                break;
-            case COLEMAK_DH:
-                ergodox_infinity_lcd_color(1000, 0, 16000); // indigo?
-                break;
-            case NUMPAD:
-                ergodox_infinity_lcd_color(20000, 1000, 40000); // violet?
-                break;
-            case QWERTY_CAPS:
-                ergodox_infinity_lcd_color(1000, 1000, 1000); // black?
-                break;
-            default:
-                st7565_on_user();
-        }
 
         static const char qmk_logo[] = {
             0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8A, 0x8B, 0x8C, 0x8D, 0x8E, 0x8F, 0x90, 0x91, 0x92, 0x93, 0x94,
