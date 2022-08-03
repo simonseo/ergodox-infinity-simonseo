@@ -5,8 +5,12 @@
 #pragma once
 
 #define EE_HANDS
+#define SPLIT_LAYER_STATE_ENABLE
+
 // #define SPLIT_KEYBOARD
-// #define MASTER_LEFT
+// #define MASTER_LEFT // You can set the handedness at compile time. This is done by adding this. If neither are defined, the handedness defaults to MASTER_LEFT.
+// #define MASTER_RIGHT // should I turn this on when flashing the right side?
+
 
 // Start ORYX Options
 // #define ORYX_CONFIGURATOR

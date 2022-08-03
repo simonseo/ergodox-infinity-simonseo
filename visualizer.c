@@ -2,7 +2,7 @@
 * @Author: Simon Myunggun Seo
 * @Date:   2022-07-24 00:42:27
 * @Last Modified by:   Simon Seo
-* @Last Modified time: 2022-08-03 14:18:13
+* @Last Modified time: 2022-08-03 14:37:15
 */
 #include QMK_KEYBOARD_H
 #include "layers.h"
@@ -92,6 +92,7 @@ void st7565_task_user(void) {
     } else {
         // Draw logo
         // ergodox_infinity_lcd_color(65535, 65535, 0); // red
+        // ergodox_infinity_lcd_color(1000, 1000, 8000); // blue
         
 
         static const char qmk_logo[] = {
@@ -101,7 +102,8 @@ void st7565_task_user(void) {
         };
 
         st7565_write(qmk_logo, false);
-        st7565_write("  Simon's  Ergodox  ", false);
+        st7565_write_P(PSTR((char *)layer_state), false);
+        st7565_write("  Simon's  Ergodox ", false);
     }
 
 }
