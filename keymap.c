@@ -8,12 +8,12 @@
 #include "layers.h"
 
 #define KR_HANJ LALT(KC_ENTER) // Hanja (한자)
-// #define KR_HANEN TD(HANEN_CMD) // Han ↔ Yeong (한 ↔ 영)
+// define KR_HANEN TD(HANEN_CMD) // Han ↔ Yeong (한 ↔ 영)
 #define KR_HANEN LCTL(KC_SPACE)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [BASE] = LAYOUT_ergodox_pretty(
-    KC_ESCAPE,      KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           TO(5),                                          TO(1),          KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_BSPACE,
+    /*KC_ESCAPE*/QK_BOOT,      KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           TO(5),                                          TO(1),          KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           /*KC_BSPACE*/QK_BOOT,
     KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_PLUS,                                        KC_UNDS,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLASH,
     OSL(1),         KC_A,           LT(1,KC_S),     KC_D,           KC_F,           KC_G,                                                                           KC_H,           KC_J,           KC_K,           LT(1,KC_L),     LT(6,KC_SCOLON),KC_ENTER,
     /*TD(LPAREN_LSHIFT_CAPSLOCK)*/KC_LSPO,KC_Z,KC_X,           KC_C,           KC_V,           KC_B,           KC_MINUS,                                       KC_EQUAL,       KC_B,           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_RSPC, // TD(RPAREN_RSHIFT_LAYER7),
@@ -63,11 +63,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
   [MDIA] = LAYOUT_ergodox_pretty(
-    RESET,          KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          TO(4),                                          TO(0),          KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         RESET,
-    DEBUG,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_F11,                                         KC_F12,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                 KC_MEDIA_PLAY_PAUSE,KC_MEDIA_PREV_TRACK,KC_MEDIA_NEXT_TRACK,KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_AUDIO_MUTE,  KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_BRIGHTNESS_DOWN,KC_BRIGHTNESS_UP,KC_TRANSPARENT, KC_TRANSPARENT, ST_MACRO_0,
+    RESET,          KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          TO(4),                                          TO(0),          KC_F6,          KC_F7,                    KC_F8,                KC_F9,          KC_F10,         RESET,
+    DEBUG,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_F11,                                         KC_F12,         KC_TRANSPARENT, KC_TRANSPARENT,           KC_TRANSPARENT,       KC_TRANSPARENT, KC_TRANSPARENT, DEBUG,
+    QK_BOOT,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                 KC_MEDIA_PLAY_PAUSE,KC_MEDIA_PREV_TRACK,  KC_MEDIA_NEXT_TRACK,  KC_TRANSPARENT, KC_TRANSPARENT, QK_BOOT,
+    QK_RBT,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_AUDIO_MUTE,  KC_AUDIO_VOL_DOWN,        KC_AUDIO_VOL_UP,      KC_TRANSPARENT, KC_TRANSPARENT, QK_RBT,
+    EEP_RST,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_BRIGHTNESS_DOWN,       KC_BRIGHTNESS_UP,     KC_TRANSPARENT, KC_TRANSPARENT, EEP_RST, /*ST_MACRO_0,*/
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
@@ -128,11 +128,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
+/*
 uint32_t layer_state_set_user(uint32_t state) {
   return state;
 };
 
-/*
 typedef struct {
     bool is_press_action;
     uint8_t step;

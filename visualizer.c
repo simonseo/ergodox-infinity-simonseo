@@ -2,7 +2,7 @@
 * @Author: Simon Myunggun Seo
 * @Date:   2022-07-24 00:42:27
 * @Last Modified by:   Simon Seo
-* @Last Modified time: 2022-08-02 02:36:34
+* @Last Modified time: 2022-08-03 13:50:05
 */
 #include QMK_KEYBOARD_H
 #include "layers.h"
@@ -100,7 +100,7 @@ void st7565_task_user(void) {
         };
 
         st7565_write(qmk_logo, false);
-        st7565_write("  ERGODOX EZ  ", false);
+        st7565_write("  Simon's  Ergodox  ", false);
     }
 
 }

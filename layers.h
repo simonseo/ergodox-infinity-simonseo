@@ -28,6 +28,3 @@ enum tap_dance_codes {
 };
 
 
-#define KR_HANJ LALT(KC_ENTER) // Hanja (한자)
-#define KR_HANEN TD(HANEN_CMD) // Han ↔ Yeong (한 ↔ 영)
-
