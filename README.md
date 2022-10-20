@@ -25,6 +25,7 @@ qmk clean -kb input_club/ergodox_infinity -km simonseo
 - LT(layer, kc) - momentarily activates layer when held, and sends kc when tapped. Only supports layers 0-15.
 - OSL(layer) - momentarily activates layer until the next key is pressed. See One Shot Keys for details and additional functionality.
 
+```
 /* Keymap 0: Basic layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
@@ -46,6 +47,7 @@ qmk clean -kb input_club/ergodox_infinity -km simonseo
  *                                 |      |      | End  |       | PgDn |        |      |
  *                                 `--------------------'       `----------------------'
  */
+```
 
 ### goals for simonseo004
 - match basic keys to ergodox infinity
