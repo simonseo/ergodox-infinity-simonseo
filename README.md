@@ -1,3 +1,12 @@
+## run some codes
+```
+make input_club/ergodox_infinity:simonseo:dfu-util-split-right
+make input_club/ergodox_infinity:simonseo:dfu-util-split-left
+make input_club/ergodox_infinity:simonseo
+qmk compile -kb input_club/ergodox_infinity -km simonseo
+qmk clean -kb input_club/ergodox_infinity -km simonseo
+```
+
 
 ## simonseo002
 - left hand side lights up according to custom defined color
