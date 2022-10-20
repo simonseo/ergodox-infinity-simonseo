@@ -13,10 +13,10 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [BASE] = LAYOUT_ergodox_pretty(
-    /*KC_ESCAPE*/QK_BOOT,      KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           TO(5),                                          TO(1),          KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           /*KC_BSPACE*/QK_BOOT,
+    KC_ESCAPE,      KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           TO(5),                                          TO(1),          KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_BSPACE,
     KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_PLUS,                                        KC_UNDS,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLASH,
     OSL(1),         KC_A,           LT(1,KC_S),     KC_D,           KC_F,           KC_G,                                                                           KC_H,           KC_J,           KC_K,           LT(1,KC_L),     LT(6,KC_SCOLON),KC_ENTER,
-    /*TD(LPAREN_LSHIFT_CAPSLOCK)*/KC_LSPO,KC_Z,KC_X,           KC_C,           KC_V,           KC_B,           KC_MINUS,                                       KC_EQUAL,       KC_B,           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_RSPC, // TD(RPAREN_RSHIFT_LAYER7),
+    TD(LPAREN_LSHIFT_CAPSLOCK),KC_Z,KC_X,           KC_C,           KC_V,           KC_B,           KC_MINUS,                                       KC_EQUAL,       KC_B,           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_RSPC, // TD(RPAREN_RSHIFT_LAYER7),
     OSL(5),         KC_HYPR,        KC_LCTRL,       KC_LALT,        KC_LGUI,                                                                                                        KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_SLASH,
                                                                                       MT(MOD_LALT, KC_APPLICATION), KC_LGUI,        KR_HANJ,        KR_HANEN,
                                                                                                                     KC_HOME,        KC_PGUP,
@@ -128,7 +128,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
-/*
 uint32_t layer_state_set_user(uint32_t state) {
   return state;
 };
@@ -196,6 +195,7 @@ void dance_0_reset(qk_tap_dance_state_t *state, void *user_data) {
     }
     dance_state[0].step = 0;
 }
+
 
 
 // RPAREN_RSHIFT_LAYER7
@@ -271,9 +271,9 @@ void dance_2_reset(qk_tap_dance_state_t *state, void *user_data) {
     dance_state[2].step = 0;
 }
 
+
 qk_tap_dance_action_t tap_dance_actions[] = {
         [LPAREN_LSHIFT_CAPSLOCK] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_0_finished, dance_0_reset),
         [RPAREN_RSHIFT_LAYER7] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_1, dance_1_finished, dance_1_reset),
         [HANEN_CMD] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_2, dance_2_finished, dance_2_reset),
 };
-*/

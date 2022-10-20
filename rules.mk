@@ -13,7 +13,7 @@ VISUALIZER = yes			# for the two LCD screens?
 
 ## ORYX rules start
 # LTO_ENABLE = yes			# code optimization step while compiling
-# TAP_DANCE_ENABLE = no
+TAP_DANCE_ENABLE = yes
 # ORYX rules end
 
 
