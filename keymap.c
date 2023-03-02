@@ -7,6 +7,7 @@
 // layer names and custom keycode
 #include "layers.h"
 
+// #define KR_HANJEMO TD(HANJA_EMO) // Hanja + emoji
 #define KR_HANJ LALT(KC_ENTER) // Hanja (한자)
 // define KR_HANEN TD(HANEN_CMD) // Han ↔ Yeong (한 ↔ 영)
 #define KR_HANEN LCTL(KC_SPACE)
@@ -15,12 +16,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [BASE] = LAYOUT_ergodox_pretty(
     KC_ESCAPE,      KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           TO(5),                                          TO(1),          KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_BSPACE,
     KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_PLUS,                                        KC_UNDS,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLASH,
-    OSL(1),         KC_A,           LT(1,KC_S),     KC_D,           KC_F,           KC_G,                                                                           KC_H,           KC_J,           KC_K,           LT(1,KC_L),     LT(6,KC_SCOLON),KC_ENTER,
+    TT(4),          KC_A,           LT(1,KC_S),     KC_D,           KC_F,           KC_G,                                                                           KC_H,           KC_J,           KC_K,           LT(1,KC_L),     LT(6,KC_SCOLON),KC_ENTER,
     TD(LPAREN_LSHIFT_CAPSLOCK),KC_Z,KC_X,           KC_C,           KC_V,           KC_B,           KC_MINUS,                                       KC_EQUAL,       KC_B,           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_RSPC, // TD(RPAREN_RSHIFT_LAYER7),
     OSL(5),         KC_HYPR,        KC_LCTRL,       KC_LALT,        KC_LGUI,                                                                                                        KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_SLASH,
-                                                                                      MT(MOD_LALT, KC_APPLICATION), KC_LGUI,        KR_HANJ,        KR_HANEN,
+                                                                                      MT(MOD_LALT, KC_APPLICATION), KC_LGUI,        TD(HANJA_EMO),  TD(HANEN_CMD),
                                                                                                                     KC_HOME,        KC_PGUP,
-                                                                                    KC_BSPACE,      KC_DELETE,      KC_END,         KC_PGDOWN,      KC_ENTER,       KC_SPACE
+                                                                                    KC_SPACE,       KC_DELETE,      KC_END,         KC_PGDOWN,      KC_UNDS,        KC_SPACE
   ),
   [SYMB] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, TO(0),                                          TO(2),          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -54,9 +55,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [NUMPAD] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, TO(2),                                          TO(5),          KC_TRANSPARENT, KC_TRANSPARENT, KC_KP_SLASH,    KC_KP_ASTERISK, KC_KP_MINUS,    KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_PLUS,     KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_6,           KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_0,           KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_KP_4,        KC_KP_5,        KC_KP_6,        KC_KP_PLUS,     KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_ENTER,    KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_KP_0,        KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_ENTER,    KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_KP_0,        KC_KP_0,        KC_KP_DOT,      KC_KP_ENTER,    KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
@@ -64,10 +65,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [MDIA] = LAYOUT_ergodox_pretty(
     RESET,          KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          TO(4),                                          TO(0),          KC_F6,          KC_F7,                    KC_F8,                KC_F9,          KC_F10,         RESET,
-    DEBUG,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_F11,                                         KC_F12,         KC_TRANSPARENT, KC_TRANSPARENT,           KC_TRANSPARENT,       KC_TRANSPARENT, KC_TRANSPARENT, DEBUG,
-    QK_BOOT,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                 KC_MEDIA_PLAY_PAUSE,KC_MEDIA_PREV_TRACK,  KC_MEDIA_NEXT_TRACK,  KC_TRANSPARENT, KC_TRANSPARENT, QK_BOOT,
+    DEBUG,          MACRO_TEST,     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_F11,                                         KC_F12,         DT_PRNT,        DT_DOWN,                  DT_UP,                KC_TRANSPARENT, MACRO_TEST,     DEBUG,
+    QK_BOOT,        VRSN,           KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                 KC_MEDIA_PLAY_PAUSE,KC_MEDIA_PREV_TRACK,  KC_MEDIA_NEXT_TRACK,  KC_TRANSPARENT, VRSN,           QK_BOOT,
     QK_RBT,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_AUDIO_MUTE,  KC_AUDIO_VOL_DOWN,        KC_AUDIO_VOL_UP,      KC_TRANSPARENT, KC_TRANSPARENT, QK_RBT,
-    EEP_RST,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_BRIGHTNESS_DOWN,       KC_BRIGHTNESS_UP,     KC_TRANSPARENT, KC_TRANSPARENT, EEP_RST, /*ST_MACRO_0,*/
+    EEP_RST,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_BRIGHTNESS_DOWN,       KC_BRIGHTNESS_UP,     KC_TRANSPARENT, KC_TRANSPARENT, EEP_RST,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
@@ -97,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // this 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case ST_MACRO_0:
+    case MACRO_TEST:
       if (record->event.pressed) {
         SEND_STRING(SS_TAP(X_CAPSLOCK) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_S) SS_DELAY(100) SS_TAP(X_T));
       }
@@ -146,7 +147,7 @@ enum {
     MORE_TAPS
 };
 
-static tap dance_state[3];
+static tap dance_state[4];
 
 uint8_t dance_step(qk_tap_dance_state_t *state);
 
@@ -271,9 +272,44 @@ void dance_2_reset(qk_tap_dance_state_t *state, void *user_data) {
     dance_state[2].step = 0;
 }
 
+// HANJA_EMO
+void on_dance_3(qk_tap_dance_state_t *state, void *user_data);
+void dance_3_finished(qk_tap_dance_state_t *state, void *user_data);
+void dance_3_reset(qk_tap_dance_state_t *state, void *user_data);
+
+void on_dance_3(qk_tap_dance_state_t *state, void *user_data) {
+    if(state->count == 3) {
+        tap_code16(LALT(KC_ENTER));
+        tap_code16(LALT(KC_ENTER));
+        tap_code16(LALT(KC_ENTER));
+    }
+    if(state->count > 3) {
+        tap_code16(LALT(KC_ENTER));
+    }
+}
+
+void dance_3_finished(qk_tap_dance_state_t *state, void *user_data) {
+    dance_state[3].step = dance_step(state);
+    switch (dance_state[3].step) {
+        case SINGLE_TAP: register_code16(LALT(KC_ENTER)); break;
+        case DOUBLE_TAP: register_code16(LCTL(LGUI(KC_SPACE))); break;
+        case DOUBLE_SINGLE_TAP: tap_code16(LALT(KC_ENTER)); register_code16(LALT(KC_ENTER));
+    }
+}
+
+void dance_3_reset(qk_tap_dance_state_t *state, void *user_data) {
+    wait_ms(10);
+    switch (dance_state[3].step) {
+        case SINGLE_TAP: unregister_code16(LALT(KC_ENTER)); break;
+        case DOUBLE_TAP: unregister_code16(LCTL(LGUI(KC_SPACE))); break;
+        case DOUBLE_SINGLE_TAP: unregister_code16(LALT(KC_ENTER)); break;
+    }
+    dance_state[3].step = 0;
+}
 
 qk_tap_dance_action_t tap_dance_actions[] = {
         [LPAREN_LSHIFT_CAPSLOCK] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_0_finished, dance_0_reset),
         [RPAREN_RSHIFT_LAYER7] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_1, dance_1_finished, dance_1_reset),
         [HANEN_CMD] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_2, dance_2_finished, dance_2_reset),
+        [HANJA_EMO] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_3, dance_3_finished, dance_3_reset),
 };

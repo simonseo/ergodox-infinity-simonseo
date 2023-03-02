@@ -4,6 +4,7 @@
 */
 #pragma once
 
+#define USB_SUSPEND_WAKEUP_DELAY 200 // to fix keyboard falling asleep with computer
 #define EE_HANDS
 #define SPLIT_LAYER_STATE_ENABLE
 

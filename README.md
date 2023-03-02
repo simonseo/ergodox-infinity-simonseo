@@ -25,29 +25,6 @@ qmk clean -kb input_club/ergodox_infinity -km simonseo
 - LT(layer, kc) - momentarily activates layer when held, and sends kc when tapped. Only supports layers 0-15.
 - OSL(layer) - momentarily activates layer until the next key is pressed. See One Shot Keys for details and additional functionality.
 
-```
-/* Keymap 0: Basic layer
- *
- * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   =+   |   1  |   2  |   3  |   4  |   5  | [{   |           | ]}   |   6  |   7  |   8  |   9  |   0  |   -_   |
- * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | TAB    |   Q  |   W  |   E  |   R  |   T  |  L5  |           |  L1  |   Y  |   U  |   I  |   O  |   P  |   \    |
- * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |Cmd      |  A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |; / L2|' / Cmd |
- * |--------+------+------+------+------+------| Hyper|           |Meh/B |------+------+------+------+------+--------|
- * |LShift/(|Z/Ctrl|   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |//Ctrl|RShift/)|
- * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |Grv/L1|  '"  |AltShf| App  | LGui |                                       | Left | Down |  Up  | Right| ~L1  |
- *   `----------------------------------'                                       `----------------------------------'
- *                                        ,-------------.       ,-------------.
- *                                        | LCTRL| LALT |       | 한자 | 한영 |
- *                                 ,------|------|------|       |------+--------+------.
- *                                 |      |      | Home |       | PgUp |        |      |
- *                                 | BKSP | DEL  |------|       |------|  Enter |Space |
- *                                 |      |      | End  |       | PgDn |        |      |
- *                                 `--------------------'       `----------------------'
- */
-```
 
 ### goals for simonseo004
 - match basic keys to ergodox infinity
@@ -55,10 +32,31 @@ qmk clean -kb input_club/ergodox_infinity -km simonseo
 - do not turn off lights after time out
 
 
-### goals for simonseo005
+### simonseo005 (Aug 10, 2022?)
 - type out each keypress on screen
 - add function layers
 - add symbol layer - like spanish 
 - add korean layer
 - add colemak layer
 - add simon-qwerty-layer
+
+### v6 (March 1, 2023)
+- Adapt from Oryx layouts
+- build command:
+> ```
+> // back up last build in ~/qmk_firmware
+> qmk clean -kb input_club/ergodox_infinity -km simonseo
+> qmk compile -kb input_club/ergodox_infinity -km simonseo
+> // put keyboard in flash mode
+> // use qmk toolbox to flash
+> ```
+- HANJA + Emoji 
+- HANEN + cmd
+- dynamic tapping term in media-fn layer and rules.mk
+- numpad layer
+- fix keyboard falling asleep with computer `#define USB_SUSPEND_WAKEUP_DELAY 200` in config.h
+- my own logo from [image2cpp](https://javl.github.io/image2cpp/)
+    - canvas size: 128x32 (px)
+    - invert image color
+    - plain bytes
+    - vertical 1 bit per pixel
