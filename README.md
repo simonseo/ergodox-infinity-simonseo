@@ -60,3 +60,6 @@ qmk clean -kb input_club/ergodox_infinity -km simonseo
     - invert image color
     - plain bytes
     - vertical 1 bit per pixel
+
+### v7 (April 7, 2023)
+- increase `USB_SUSPEND_WAKEUP_DELAY` to 500
