@@ -14,7 +14,7 @@ VISUALIZER = yes			# for the two LCD screens?
 ## ORYX rules start
 ## LTO_ENABLE = yes			# code optimization step while compiling
 TAP_DANCE_ENABLE = yes
-DYNAMIC_TAPPING_TERM_ENABLE = yes
+DYNAMIC_TAPPING_TERM_ENABLE = yes # in/decrease tapping term if modifier activates too soon/late
 ## ORYX rules end
 
 

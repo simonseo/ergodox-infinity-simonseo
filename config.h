@@ -12,6 +12,8 @@
 // #define MASTER_LEFT // You can set the handedness at compile time. This is done by adding this. If neither are defined, the handedness defaults to MASTER_LEFT.
 // #define MASTER_RIGHT // should I turn this on when flashing the right side?
 
+#undef TAPPING_TERM
+#define TAPPING_TERM 140 // default tapping term for modifier keys
 
 // Start ORYX Options
 // #define ORYX_CONFIGURATOR

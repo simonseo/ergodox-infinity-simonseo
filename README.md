@@ -63,3 +63,4 @@ qmk clean -kb input_club/ergodox_infinity -km simonseo
 
 ### v7 (April 7, 2023)
 - increase `USB_SUSPEND_WAKEUP_DELAY` to 500
+- decrease default `TAPPING_TERM` to 140 and display it on screen
