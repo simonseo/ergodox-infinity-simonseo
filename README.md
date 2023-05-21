@@ -64,3 +64,7 @@ qmk clean -kb input_club/ergodox_infinity -km simonseo
 ### v7 (April 7, 2023)
 - increase `USB_SUSPEND_WAKEUP_DELAY` to 500
 - decrease default `TAPPING_TERM` to 140 and display it on screen
+
+### May 21, 2023
+- Added Apple Fn key keycode on the Media/Fn layer. see [this gist]([url](https://gist.github.com/fauxpark/010dcf5d6377c3a71ac98ce37414c6c4)).
+- Bumped to QMK 0.20.8. Lots of keycodes changed.
