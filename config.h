@@ -4,6 +4,7 @@
 */
 #pragma once
 
+#undef USB_SUSPEND_WAKEUP_DELAY
 #define USB_SUSPEND_WAKEUP_DELAY 500 // to fix keyboard falling asleep with computer
 #define EE_HANDS
 #define SPLIT_LAYER_STATE_ENABLE
@@ -24,3 +25,11 @@
 // #define RAW_USAGE_PAGE 0xFF60
 // #define RAW_USAGE_ID 0x61
 // End ORYX Options
+
+
+// Apple Fn options
+// see https://usb-ids.gowdy.us/read/UD/05ac for list of PIDs
+#undef VENDOR_ID
+#define VENDOR_ID 0x05AC
+#undef PRODUCT_ID
+#define PRODUCT_ID 0x0267

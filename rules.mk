@@ -4,12 +4,16 @@
 # ST7565 Settings
 ST7565_ENABLE = yes			# for the two LCD screens
 SRC += visualizer.c
-## ST7565_TIMEOUT = 10000		# turn off screen content after 10000ms to reduce burn in (default 60,000)
+ST7565_TIMEOUT = 60000		# turn off screen content after 10000ms to reduce burn in (default 60,000)
 ## ST7565_CONTRAST = 255		# The default contrast level of the display, from 0 to 255 (default 32)
 VISUALIZER = yes			# for the two LCD screens?
 
 # Debugging Console
 ## CONSOLE_ENABLE = no		# for seeing debugging logs in QMK toolbox, use in conjunction with debug.h
+
+# Apple Fn key
+NKRO_ENABLE = no
+APPLE_FN_ENABLE = yes
 
 ## ORYX rules start
 ## LTO_ENABLE = yes			# code optimization step while compiling
