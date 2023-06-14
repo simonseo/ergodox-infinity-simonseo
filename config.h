@@ -4,15 +4,31 @@
 */
 #pragma once
 
-#undef USB_SUSPEND_WAKEUP_DELAY
-#define USB_SUSPEND_WAKEUP_DELAY 500 // to fix keyboard falling asleep with computer
+//// trying to fix keyboard not loading on host wakeup, or keyboard just not loading, or one half being frozen
+// #undef USB_SUSPEND_WAKEUP_DELAY
+// #define USB_SUSPEND_WAKEUP_DELAY 500 // to fix keyboard falling asleep with computer
+#define SPLIT_USB_DETECT
+#define SPLIT_USB_DETECT_TIMEOUT 2000
+#define SPLIT_WATCHDOG_ENABLE
+#define SPLIT_WATCHDOG_TIMEOUT 3000
+
+
+//// Split keyboard handedness setting
 #define EE_HANDS
+
+// You can set the handedness at compile time. This is done by adding this. 
+// If neither are defined, the handedness defaults to MASTER_LEFT.
+// #define MASTER_LEFT 
+
+// should I turn this on when flashing the right side? 
+// yes, for the first time only though. I think the value gets saved in the EEPROM
+// #define MASTER_RIGHT 
+
+// Ensures the current layer state is available on the slave when using the QMK-provided split transport.
 #define SPLIT_LAYER_STATE_ENABLE
 
-// #define SPLIT_KEYBOARD
-// #define MASTER_LEFT // You can set the handedness at compile time. This is done by adding this. If neither are defined, the handedness defaults to MASTER_LEFT.
-// #define MASTER_RIGHT // should I turn this on when flashing the right side?
 
+// How fast should a "double tap" be?
 #undef TAPPING_TERM
 #define TAPPING_TERM 140 // default tapping term for modifier keys
 
